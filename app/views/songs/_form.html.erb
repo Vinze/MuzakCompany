@@ -1,0 +1,15 @@
+<%= form_for(@song) do |f| %>
+	<%= f.label :artist, "Artiest:" %>
+	<%= f.text_field :artist  %><br />
+
+	<%= f.label :title, "Titel:" %>
+	<%= f.text_field :title  %><br />
+
+	<%= f.label :length, "Lengte:" %>
+	<%= f.text_field :length  %><br />
+
+	<%= f.label :mood_id, "Mood:" %>
+	<%= collection_select(:song, :mood_id, Mood.find(:all, :order => "description"), :id, :description) %><br />
+
+	<%= f.submit "Opslaan", class: "button" %>
+<% end %>

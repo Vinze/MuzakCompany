@@ -1,0 +1,20 @@
+<h1>Nummers</h1>
+<p><%= link_to "Nummer toevoegen", new_song_path %></p>
+<table class="table">
+	<tr>
+		<th>#</th>
+		<th>Artiest</th>
+		<th>Titel</th>
+		<th>Lengte</th>
+		<th>Mood</th>
+	</tr>
+	<% @songs.each do |song| %>
+		<tr>
+			<td><%= song.id %></td>
+			<td><%= link_to song.artist, song %></td>
+			<td><%= link_to song.title, song %></td>
+			<td><%= sec_to_time(song.length) %> min</td>
+			<td><%= link_to song.mood.description, song.mood %></td>
+		</tr>
+	<% end %>
+</table>

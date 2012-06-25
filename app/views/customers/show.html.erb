@@ -1,0 +1,43 @@
+<h1>Klant bekijken</h1>
+<table class="table">
+	<tr>
+		<td>Klantnaam:</td>
+		<td><%= @customer.name %></td>
+	</tr>
+	<tr>
+		<td>Mood:</td>
+		<td><%= @customer.mood.description %></td>
+	</tr>
+</table>
+<h2>Playlist:</h2>
+<% if @customer.mood.songs.any? %>
+	<table class="table"  style="width: 100%">
+		<tr>
+			<th>Artiest</th>
+			<th>Titel</th>
+			<th>Lengte</th>
+		</tr>
+		<% total_time = 0 %>
+		<% playlist = @customer.mood.songs.shuffle %>
+		<% playlist.each do |s| %>
+			<% if total_time + s.length < 1200 %>
+				<tr>
+					<td style="width: 35%"><%= s.artist %></td>
+					<td style="width: 50%"><%= s.title %></td>
+					<td style="width: 15%"><%= sec_to_time(s.length) %> min</td>
+				</tr>
+				<% total_time += s.length %>
+			<% end %>
+		<% end %>
+		<tr class="last_row">
+			<td></td>
+			<td style="text-align:right;">Totale tijd:</td>
+			<td><%= sec_to_time(total_time) %> min</td>
+		</tr>
+	</table>
+<% else %>
+	Geen nummers met de mood <%= @customer.mood.description %> gevonden.
+<% end %>
+<p>
+<%= link_to "Terug", root_path %> | <%= link_to "Bewerken", edit_customer_path %>
+</p>

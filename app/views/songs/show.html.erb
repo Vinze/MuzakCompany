@@ -1,0 +1,8 @@
+<h1>Nummer bekijken</h1>
+Artiest: <%= @song.artist %><br />
+Title: <%= @song.title %><br />
+Lengte: <%= sec_to_time(@song.length) %> minuten<br />
+Mood: <%= @song.mood.description %>
+<p>
+<%= link_to "Terug", songs_path %> | <%= link_to "Bewerken", edit_song_path %>
+</p>

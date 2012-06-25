@@ -1,0 +1,16 @@
+<h1>Moods</h1>
+<p><%= link_to "Mood toevoegen", new_mood_path %></p>
+<table class="table">
+	<tr>
+		<th>#</th>
+		<th>Mood</th>
+		<th>Aantal</th>
+	</tr>
+	<% @moods.each do |mood| %>
+		<tr>
+			<td><%= mood.id %></td>
+			<td><%= link_to mood.description, mood %></td>
+			<td><%= mood.songs.length.to_s + (mood.songs.length == 1 ? " nummer" : " nummers") %></td>
+		</tr>
+	<% end %>
+</table>

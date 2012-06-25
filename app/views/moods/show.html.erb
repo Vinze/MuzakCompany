@@ -1,0 +1,26 @@
+<h1>Mood bekijken</h1>
+<p>
+	Omschrijving: <%= @mood.description %>
+</p>
+<h2>Nummers</h2>
+<% if @mood.songs.any? %>
+	<table class="table">
+		<tr>
+			<th>Artiest</th>
+			<th>Titel</th>
+			<th>Lengte</th>
+		</tr>
+		<% @mood.songs.each do |song| %>
+			<tr>
+				<td><%= song.artist %></td>
+				<td><%= link_to song.title, song %></td>
+				<td><%= sec_to_time(song.length) %> min</td>
+			</tr>
+		<% end %>
+	</table>
+<% else %>
+	Geen nummers met deze mood gevonden.
+<% end %>
+<p>
+<%= link_to "Terug", moods_path %> | <%= link_to "Bewerken", edit_mood_path %>
+</p>

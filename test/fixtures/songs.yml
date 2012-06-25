@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  artist: MyString
+  title: MyString
+  length: 2012-06-20 19:44:26
+  mood_id: 1
+
+two:
+  artist: MyString
+  title: MyString
+  length: 2012-06-20 19:44:26
+  mood_id: 1

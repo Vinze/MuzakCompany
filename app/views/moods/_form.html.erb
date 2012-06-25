@@ -1,0 +1,6 @@
+<%= form_for(@mood) do |f| %>
+	<%= f.label :description, "Omschrijving:" %>
+	<%= f.text_field :description  %>
+
+	<%= f.submit "Opslaan", class: "button" %>
+<% end %>
